@@ -1,4 +1,4 @@
-# to-do
+# TheGoGame API
 
 This project is designed to be a simple customer support todoing system.
 
@@ -52,9 +52,9 @@ After installing node, this project will need yarn too, so just run the followin
 
 ## Install
 
-    $ git clone 
+    $ git clone
     $ cd to-do
-    $ yarn 
+    $ yarn
 
 ## Configure app
 
@@ -66,7 +66,6 @@ Open `to-do/.env` then edit it with your settings. You will need:
 - PORT;
   Port for app to run on e.g 2020(any port of your choice)
 
-
 ## Running the project
 
 Run the following commands
@@ -74,15 +73,11 @@ Run the following commands
     $ yarn build
     $ yarn start:dev
 
-
 ## Running the Unit Tests
 
 Run the following commands
 
     $ yarn test
-
-
-
 
 ## Project Structure
 
@@ -90,7 +85,7 @@ Run the following commands
 to-do
     |--seeds\               # Seed Data
     |--src\
-        |--bin  
+        |--bin
             |--www
                 |--index.ts             # App entry point
         |--config\              # App config
@@ -107,11 +102,6 @@ to-do
         |--app.ts               # Express app
     |--test\                # testDirectory
 ```
-
-
-
-
-
 
 ## REST API DOCUMENTATION
 
@@ -132,7 +122,7 @@ The REST API to to-do service is described below.
 
     HTTP Status: 200 OK
     Content-Type: application/json
-    
+
 
     Response Body
     {
@@ -143,10 +133,10 @@ The REST API to to-do service is described below.
 
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
+
 - USER
+
 #### Request
-
-
 
 `POST /todo/`
 
@@ -164,7 +154,7 @@ It requires an access token with a role with the following user types.
 
     HTTP Status: 201 Created
     Content-Type: application/json
-    
+
 
     Response Body
     {
@@ -181,8 +171,10 @@ It requires an access token with a role with the following user types.
     }
 
 ### Get All User Todos
+
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
+
 - USER
 
 #### Request
@@ -198,7 +190,7 @@ It requires an access token with a role with the following user types.
 
     HTTP Status: 200 OK
     Content-Type: application/json
-    
+
 
     Response Body
     [
@@ -232,12 +224,12 @@ It requires an access token with a role with the following user types.
 
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
+
 - USER
 - ADMIN
 - AGENT
+
 #### Request
-
-
 
 `POST /todo/comment/`
 
@@ -255,7 +247,7 @@ It requires an access token with a role with the following user types.
 
     HTTP Status: 200 Ok
     Content-Type: application/json
-    
+
 
     Response Body
     {
@@ -277,11 +269,14 @@ It requires an access token with a role with the following user types.
     }
 
 ### Get a Todo by id
+
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
+
 - USER
 - ADMIN
 - AGENT
+
 #### Request
 
 `GET /todo/id/:id`
@@ -295,7 +290,7 @@ It requires an access token with a role with the following user types.
 
     HTTP Status: 200 OK
     Content-Type: application/json
-    
+
 
     Response Body
     {
@@ -332,25 +327,27 @@ It requires an access token with a role with the following user types.
       "__v": 0
     }
 
-
 ### Process a todo
+
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
 
 - AGENT
+
 #### Request
 
 `POST /todo/process/:id`
-    
+
     curl --location --request POST 'localhost:1234/todo/process/64d4e2e63dbdff12e8c801dc' \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --header 'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZDQzZjMyNGM5MDNmMjhiYmE0N2Q5OSIsImVtYWlsIjoiYWdlbnQxQGZpbmNyYS5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE2OTE2NzY2MTl9.HV152vv7pyk4SG8pMzRg9hO7fpnRVoRuvUo10soeBY0'
+
 #### Response
 
     HTTP Status: 200 OK
     Content-Type: application/json
-    
+
 
     Response Body
     {
@@ -359,10 +356,13 @@ It requires an access token with a role with the following user types.
     }
 
 ### Close a todo
+
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
+
 - ADMIN
 - AGENT
+
 #### Request
 
 `GET /todo/close/:id`
@@ -376,7 +376,7 @@ It requires an access token with a role with the following user types.
 
     HTTP Status: 200 OK
     Content-Type: application/json
-    
+
 
     Response Body
     {
@@ -384,12 +384,14 @@ It requires an access token with a role with the following user types.
       "message": "Processing todo"
     }
 
-
 ### Get All Todos
+
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
+
 - ADMIN
 - AGENT
+
 #### Request
 
 `GET /todo/all/`
@@ -403,7 +405,7 @@ It requires an access token with a role with the following user types.
 
     HTTP Status: 200 OK
     Content-Type: application/json
-    
+
 
     Response Body
     [
@@ -441,13 +443,14 @@ It requires an access token with a role with the following user types.
       }
     ]
 
-
-
 ### Get Recently closed Todos
+
 This endpoint is an authenticated endpoint. \
 It requires an access token with a role with the following user types.
+
 - ADMIN
 - AGENT
+
 #### Request
 
 `GET /todo/recently-closed/`
@@ -456,11 +459,12 @@ It requires an access token with a role with the following user types.
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --header 'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZDQzZjMyNGM5MDNmMjhiYmE0N2Q5OSIsImVtYWlsIjoiYWdlbnQxQGZpbmNyYS5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE2OTE2NzY2MTl9.HV152vv7pyk4SG8pMzRg9hO7fpnRVoRuvUo10soeBY0'
+
 #### Response
 
     HTTP Status: 200 OK
     Content-Type: application/json
-    
+
 
     Response Body
     [
@@ -498,8 +502,8 @@ It requires an access token with a role with the following user types.
 
 Service returns the following status codes in its API:
 
-| Status Code | Body             |
-|:------------|:------------------------|
+| Status Code | Body                    |
+| :---------- | :---------------------- |
 | 200         | `OK`                    |
 | 201         | `CREATED`               |
 | 400         | `BAD REQUEST`           |
@@ -507,13 +511,10 @@ Service returns the following status codes in its API:
 | 409         | `CONFLICT`              |
 | 500         | `INTERNAL SERVER ERROR` |
 
-
-
 ## IMPROVEMENTS
 
 The following are list of possible improvements;
 
-- JWT token generated should have an expiry date that renders it invalid 
+- JWT token generated should have an expiry date that renders it invalid
 
 - Pagination should be implemented on the get multiple todo calls
-
